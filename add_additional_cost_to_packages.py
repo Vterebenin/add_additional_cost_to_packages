@@ -21,4 +21,4 @@ packages = [
 ]
 distributed_packages = add_additional_cost_to_packages(packages, 31.4)
 for pa in packages:
-    print(pa)
+    print("name: " + pa["name"] + " price: " + '%.2f' % pa["price"])
