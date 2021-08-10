@@ -6,24 +6,19 @@ def add_additional_cost_to_packages(packs, cost):
             p["price"] += add_cost
     else:
         surplus = cost % length
-        print(surplus)
-        add_cost = (cost - surplus) / length
-        print(add_cost)
+        add_surplus = surplus / float(length)
+        add_cost = float((cost - surplus)) / float(length)
+        add_cost += add_surplus
         for p in packs:
             p["price"] += add_cost
-            if surplus != 0:
-                p["price"] += 1
-                surplus -= 1
     return packs
 
 
 packages = [
     {"name": 'A123', "price": 10},
-    {"name": 'B124', "price": 15},
-    {"name": 'C125', "price": 40},
-    {"name": 'D126', "price": 82}
+    {"name": 'B124', "price": 15.1},
+    {"name": 'C125', "price": 40}
 ]
-distributed_packages = add_additional_cost_to_packages(packages, 31)
+distributed_packages = add_additional_cost_to_packages(packages, 31.4)
 for pa in packages:
     print(pa)
-# distributed_packages is [{ name: 'A123', price: 20}, {name: 'B124', price: 25}, {name: 'C125', price: 50}]
